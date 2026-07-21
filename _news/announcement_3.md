@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I attended APS-DFD in Huoston, Texas!! :smile:
+I attended APS-DFD in Huoston, Texas!! 
