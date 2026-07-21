@@ -9,8 +9,7 @@ profile:
   image: YT.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>72 So. Central Campus Drive</p>
-    <p>SALT LAKE CITY, UT 84112</p>
+    <p>SALT LAKE CITY, UT, USA </p>
    
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -29,11 +28,14 @@ latest_posts:
 Hi, I'm Younes Tatari 👋
 
 PhD Candidate in Mechanical Engineering
-University of Utah
 
-Computational Fluid Dynamics
-| Scientific Machine Learning
-| Multiphysics Simulation
+*University of Utah*
+
+**Computational Fluid Dynamics**
+
+| **Scientific Machine Learning**
+
+| **Multiphysics Simulation**
 
 My long-term goal is to develop efficient computational tools that bridge **physics-based simulation** and **machine learning**, enabling faster engineering design, optimization, and decision making in industry and healthcare.
 
