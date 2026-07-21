@@ -31,11 +31,13 @@ PhD Candidate in Mechanical Engineering
 
 *University of Utah*
 
+
+
 **Computational Fluid Dynamics**
 
-| **Scientific Machine Learning**
+**Scientific Machine Learning**
 
-| **Multiphysics Simulation**
+**Multiphysics Simulation**
 
 My long-term goal is to develop efficient computational tools that bridge **physics-based simulation** and **machine learning**, enabling faster engineering design, optimization, and decision making in industry and healthcare.
 
