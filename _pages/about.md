@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>Affiliations</a>. Scientific Computing and Imaging Institute, University of Utah
 
 profile:
   align: right
@@ -26,9 +26,12 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
+I am a PhD candidate in Mechanical Engineering at the **University of Utah**, where I develop computational methods for simulating complex fluid and particle systems. My research combines **computational fluid dynamics (CFD)**, **scientific machine learning**, and **multiphysics modeling** to improve the understanding and prediction of engineering and biomedical flows. :contentReference[oaicite:0]{index=0}
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `YT.jpg` and put it in the `img/` folder.
+My current research focuses on **CFD surrogate modeling**, **physics-informed machine learning**, **CFD–DEM simulations**, and **patient-specific cardiovascular modeling**. I am particularly interested in accelerating high-fidelity simulations using data-driven methods such as **Proper Orthogonal Decomposition (POD)**, **Gaussian Process Regression (GPR)**, **Physics-Informed Neural Networks (PINNs)**, and interpretable machine learning techniques. :contentReference[oaicite:1]{index=1}
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Previously, I worked as a **Soil and Crop Modeling Intern at CNH Industrial**, where I developed machine learning surrogate models from CFD simulations of agricultural machinery. My research has also contributed to biomedical device design, computational hemodynamics, geothermal energy systems, and multiphase particle transport. :contentReference[oaicite:2]{index=2}
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My long-term goal is to develop efficient computational tools that bridge **physics-based simulation** and **machine learning**, enabling faster engineering design, optimization, and decision making in industry and healthcare.
+
+Feel free to explore my publications, research projects, software, and simulation videos. If you are interested in collaboration or have any questions, please don't hesitate to get in touch.
