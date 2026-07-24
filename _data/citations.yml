@@ -1,1 +1,35 @@
-
+metadata:
+  last_updated: '2026-07-24'
+papers:
+  kH2LO3MAAAAJ:2osOgNQ5qMEC:
+    citations: 0
+    title: 'SGD-SINDy: Stochastic Gradient-Descent based Framework for Flexible System Identification'
+    year: '2024'
+  kH2LO3MAAAAJ:IjCSPb-OGe4C:
+    citations: 0
+    title: Patient Specific Modeling of Hemodynamics During Splenic Artery Embolization
+    year: '2024'
+  kH2LO3MAAAAJ:Tyk-4Ss8FVUC:
+    citations: 0
+    title: Coupled CFD-Particle Approaches to Predict Particle Transport and Reflux in Embolization
+    year: '2025'
+  kH2LO3MAAAAJ:UeHWp8X0CEIC:
+    citations: 10
+    title: Optimizing distal and proximal splenic artery embolization with patient-specific computational fluid dynamics
+    year: '2024'
+  kH2LO3MAAAAJ:W7OEmFMy1HYC:
+    citations: 0
+    title: 'A dual-lumen microcatheter for minimizing particle reflux during embolization: Proof-of-concept with multiphysics simulations'
+    year: '2026'
+  kH2LO3MAAAAJ:Y0pCki6q_DkC:
+    citations: 1
+    title: "Investigation of particle transport in geothermal systems using integrated CFD\u2013DEM and data-driven approaches"
+    year: '2026'
+  kH2LO3MAAAAJ:qjMakFHDy7sC:
+    citations: 0
+    title: Enhancing Splenic Artery Embolization Outcomes with Patient-Specific Computational Fluid Dynamics
+    year: '2024'
+  kH2LO3MAAAAJ:zYLM7Y9cAGgC:
+    citations: 28
+    title: 'ADAM-SINDy: An efficient optimization framework for parameterized nonlinear dynamical system identification'
+    year: '2026'
