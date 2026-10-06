@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Younes Tatari - Academic Portfolio</title>
+  <meta name="description" content="Younes Tatari: Mechanical Engineering · CFD · Multiphysics · Scientific Machine Learning">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ---------------------- SIDEBAR ---------------------- -->
+  <aside class="sidebar" id="sidebar" aria-label="Sidebar">
+    <button class="sidebar__collapse" id="sidebarClose" type="button" aria-label="Collapse sidebar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.59 18 19 16.59 14.42 12 19 7.41 17.59 6l-6 6z"/><path d="m11 18 1.41-1.41L7.83 12l4.58-4.59L11 6l-6 6z"/></svg>
+    </button>
+    <div class="sidebar__content">
+      <h1 class="sidebar__title">Younes Tatari</h1>
+      <p class="caption">Mechanical Engineering · CFD · Multiphysics · Scientific Machine Learning</p>
+
+      <hr>
+      <h3>ACADEMIC &amp; PROFESSIONAL</h3>
+      <div id="affiliations"></div>
+
+      <hr>
+      <h3>CONNECT</h3>
+      <div class="connect">
+        <a href="https://www.linkedin.com/in/younes-tatari-b1baa0110/" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="22" alt=""> <span>LinkedIn</span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=kH2LO3MAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" width="22" alt=""> <span>Google Scholar</span>
+        </a>
+        <a href="https://www.youtube.com/@younestatari4645" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="22" alt=""> <span>YouTube Channel</span>
+        </a>
+        <a href="mailto:younes.tatari@sci.utah.edu">
+          <img src="https://cdn-icons-png.flaticon.com/128/9068/9068642.png" width="22" alt=""> <span>Younes.tatari@sci.utah.edu</span>
+        </a>
+        <a href="https://maps.google.com/?q=Scientific+Computing+and+Imaging+Institute+University+of+Utah" target="_blank" rel="noopener">
+          <img src="https://cdn-icons-png.flaticon.com/128/2875/2875433.png" width="22" alt=""> <span>SCI Institute, Office Location</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar__backdrop" id="sidebarBackdrop"></div>
+
+  <button class="sidebar__open" id="sidebarOpen" type="button" aria-label="Expand sidebar">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.41 6 5 7.41 9.58 12 5 16.59 6.41 18l6-6z"/><path d="m13 6-1.41 1.41L16.17 12l-4.58 4.59L13 18l6-6z"/></svg>
+  </button>
+
+  <!-- ---------------------- MAIN CONTENT ---------------------- -->
+  <main class="main">
+    <div class="block-container">
+      <img class="banner" src="assets/logos/banner.jpg" alt="Fluid Dynamics: Simulate. Analyze. Innovate.">
+      <div class="spacer"></div>
+
+      <nav class="segmented" id="tabs" role="tablist" aria-label="Navigation"></nav>
+      <div class="spacer"></div>
+
+      <div id="content"></div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
