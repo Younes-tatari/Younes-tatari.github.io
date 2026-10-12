@@ -261,11 +261,15 @@
   /* ==========================================================================
      cv.py
      ========================================================================== */
+  // Bump this whenever the CV PDF changes, so browsers fetch the new file instead of a cached copy
+  var CV_VERSION = "2026-10-12";
+  var CV_URL = "assets/Younes_Tatari__CV.pdf?v=" + CV_VERSION;
+
   function renderCV() {
     return "<h2>📄 Curriculum Vitae</h2>" +
-      '<a class="st-button" href="assets/Younes_Tatari__CV.pdf" download="Younes_Tatari_CV.pdf">📥 Download Full CV (PDF)</a>' +
+      '<a class="st-button" href="' + CV_URL + '" download="Younes_Tatari_CV.pdf">📥 Download Full CV (PDF)</a>' +
       '<div style="height:1rem"></div>' +
-      '<iframe class="pdf-frame" src="assets/Younes_Tatari__CV.pdf#view=FitH" title="Younes Tatari CV"></iframe>' +
+      '<iframe class="pdf-frame" src="' + CV_URL + '#view=FitH" title="Younes Tatari CV"></iframe>' +
       "<hr>";
   }
 
