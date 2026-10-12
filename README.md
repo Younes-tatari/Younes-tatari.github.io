@@ -7,7 +7,7 @@ A plain HTML/CSS/JavaScript copy of the original Streamlit app. It has the same 
 | `app.py` (sidebar, CSS, navigation) | `index.html`, `style.css`, bottom of `app.js` |
 | `home.py`, `Research.py`, `experience_education.py`, `cv.py`, `publications.py`, `genealogy.py`, `news.py` | one `render…()` function each in `app.js` |
 
-To edit content, change the lists in `app.js`: `projects`, `publications`, `conferences`, `newsItems`, `skillGroups` and `affiliations`. They mirror the Python lists. Images go in `assets/`.
+To edit content, change the lists in `app.js`: `projects`, `publications`, `conferences`, `certificates`, `patents`, `newsItems`, `skillGroups` and `affiliations`. They mirror the Python lists. Images go in `assets/`.
 
 Each tab has its own link, e.g. `…/#research` or `…/#news`.
 

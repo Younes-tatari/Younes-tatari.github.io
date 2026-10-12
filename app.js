@@ -14,7 +14,7 @@
     { name: "Isfahan University of Technology", location: "Iran", logo: "assets/logos/IUT.png" }
   ];
 
-  var TABS = ["Home", "Research", "Experience & Education", "CV", "Publications", "Academic Genealogy", "News"];
+  var TABS = ["Home", "Research", "Experience & Education", "CV", "Publications", "Certificates & Patents", "Academic Genealogy", "News"];
 
   // ---------------------- helpers ----------------------
   function esc(s) {
@@ -47,9 +47,20 @@
   function ytThumb(url, title) {
     var label = title.replace(/^\S+\s/, ""); // drop the leading emoji
     return '<button type="button" class="yt" data-yt="' + esc(url) + '" aria-label="Play video: ' + esc(label) + '">' +
-      '<img src="https://i.ytimg.com/vi/' + ytId(url) + '/hqdefault.jpg" alt="" loading="lazy">' +
+      '<img src="https://i.ytimg.com/vi/' + ytId(url) + '/maxresdefault.jpg" data-yt-id="' + ytId(url) + '" alt="" loading="lazy">' +
       '<span class="yt__title">' + esc(label) + "</span>" + PLAY + "</button>";
   }
+  // maxresdefault is missing for some videos (404 or a 120px placeholder): step down to sd, then hq
+  var YT_SIZES = ["maxresdefault", "sddefault", "hqdefault"];
+  function ytNext(img) {
+    var i = YT_SIZES.indexOf(img.src.split("/").pop().replace(".jpg", ""));
+    if (i > -1 && i < YT_SIZES.length - 1) img.src = "https://i.ytimg.com/vi/" + img.getAttribute("data-yt-id") + "/" + YT_SIZES[i + 1] + ".jpg";
+  }
+  document.addEventListener("error", function (e) { if (e.target.hasAttribute && e.target.hasAttribute("data-yt-id")) ytNext(e.target); }, true);
+  document.addEventListener("load", function (e) {
+    var img = e.target;
+    if (img.hasAttribute && img.hasAttribute("data-yt-id") && img.naturalWidth <= 120) ytNext(img);
+  }, true);
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-yt]");
     if (!b) return;
@@ -70,14 +81,6 @@
   /* ==========================================================================
      home.py
      ========================================================================== */
-  // Home page statistics (update these numbers as they change)
-  var stats = [
-    { value: 4, icon: "📄", label: "Journal Papers", sub: "Peer-reviewed publications", tab: "Publications" },
-    { value: 43, icon: "📈", label: "Citations", sub: "Google Scholar", link: "https://scholar.google.com/citations?user=kH2LO3MAAAAJ&hl=en" },
-    { value: 4, icon: "🎤", label: "Conference Talks", sub: "APS-DFD & SB3C", tab: "Publications" },
-    { value: 1, icon: "💡", label: "Provisional Patent", sub: "Dual-lumen microcatheter", tab: "Research" }
-  ];
-
   function renderHome() {
     var features = [
       ["🧪", "Research Driven", "Solving real-world problems with scientific rigor"],
@@ -91,9 +94,9 @@
           '<div class="hero-card">' +
             '<h1 style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0px; color: white;">Younes Tatari</h1>' +
             '<h3 style="color: #63b3ed; font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 400; margin-top: 5px; margin-bottom: 20px;">' +
-              '<span style="color: #fc8181; display: block;">I simulate Fluid Flow.</span>' +
-              '<span style="color: #fc8181; display: block;">But, </span>' +
-              '<span style="color: #68d391; display: block; margin-top: 4px;">With Agentic AI, I engineer what comes next!!</span></h3>' +
+              '<span class="hero-red">I simulate Fluid Flow.</span>' +
+              '<span class="hero-red">But, </span>' +
+              '<span class="hero-red" style="margin-top: 4px;">With Agentic AI, I engineer what comes next!!</span></h3>' +
             '<p style="font-size: clamp(1rem, 1.3vw, 1.25rem); line-height: 1.6; color: #e2e8f0; margin-bottom: 25px;">' +
               "Computational modeling researcher working at the intersection of fluid mechanics, " +
               "particle transport, multiphysics simulation, and data-driven scientific machine " +
@@ -120,16 +123,6 @@
             '<div style="font-size: 24px; margin-bottom: 8px;">' + f[0] + "</div>" +
             '<div class="feature-title">' + esc(f[1]) + "</div>" +
             '<div class="feature-desc">' + esc(f[2]) + "</div></div></div>";
-        }).join("") +
-      "</div>" +
-      '<div class="cols cols--stretch stats-row">' +
-        stats.map(function (st) {
-          var inner = '<div class="stat-card__top"><span class="stat-card__value">' + st.value + "</span>" +
-            '<span class="stat-card__icon" aria-hidden="true">' + st.icon + "</span></div>" +
-            '<div class="stat-card__label">' + esc(st.label) + "</div>" +
-            '<div class="stat-card__sub">' + esc(st.sub) + "</div>";
-          if (st.link) return '<div><a class="stat-card" href="' + esc(st.link) + '" target="_blank" rel="noopener">' + inner + "</a></div>";
-          return '<div><a class="stat-card" href="#' + slug(st.tab) + '">' + inner + "</a></div>";
         }).join("") +
       "</div>";
   }
@@ -329,6 +322,52 @@
   }
 
   /* ==========================================================================
+     Certificates & Patents
+     ========================================================================== */
+  // Images are cropped from the PDFs in ../assets/certificates
+  var certificates = [
+    { title: "Building Agentic AI Applications with Large Language Models", issuer: "NVIDIA",
+      kind: "Certificate of Competency", date: "October 2026", image: "assets/certificates/nvidia-agentic-ai.jpg",
+      link: "https://learn.nvidia.com/certificates?id=gvxXCAY3SemlyRwwNSzEEw" },
+    { title: "Python Fundamentals", issuer: "", kind: "Certificate of Completion", date: "September 2026",
+      image: "assets/certificates/python-fundamentals.jpg", link: "" },
+    { title: "Python Logic & Flow", issuer: "", kind: "Certificate of Completion", date: "September 2026",
+      image: "assets/certificates/python-logic-flow.jpg", link: "" }
+  ];
+  // TODO: fill in "number" and replace "image" with the catheter figure from the paper
+  var patents = [
+    { title: "Dual-Lumen Microcatheter for Minimizing Particle Reflux During Embolization",
+      kind: "U.S. Provisional Patent Application", number: "",
+      image: "assets/news/cath.jpg",
+      paper: "https://doi.org/10.1016/j.compbiomed.2026.111684" }
+  ];
+
+  function renderCertificates() {
+    return "<h2>🏅 Certificates &amp; Patents</h2>" +
+      "<h3>💡 Provisional Patent</h3>" +
+      patents.map(function (p) {
+        return '<div class="cols cols--medium patent-card">' +
+          '<div><img src="' + esc(p.image) + '" alt="Dual-lumen microcatheter" loading="lazy"></div>' +
+          "<div><span class=\"pub-badge\">" + esc(p.kind) + "</span>" +
+            "<h4>" + esc(p.title) + "</h4>" +
+            (p.number ? '<p class="patent-card__num">Application No. <strong>' + esc(p.number) + "</strong></p>" : "") +
+            (p.paper ? '<a class="news-link-btn" href="' + esc(p.paper) + '" target="_blank" rel="noopener">🔗 Related publication</a>' : "") +
+          "</div></div>";
+      }).join("") +
+      "<h3>📜 Certificates</h3>" +
+      '<div class="cert-grid">' +
+      certificates.map(function (c) {
+        return '<figure class="cert-card">' +
+          '<a href="' + esc(c.image) + '" target="_blank" rel="noopener"><img src="' + esc(c.image) + '" alt="' + esc(c.kind + ": " + c.title) + '" loading="lazy"></a>' +
+          "<figcaption><strong>" + esc(c.title) + "</strong>" +
+            '<span class="caption">' + esc([c.issuer, c.kind, c.date].filter(Boolean).join(" · ")) + "</span>" +
+            (c.link ? '<a class="news-link-btn" href="' + esc(c.link) + '" target="_blank" rel="noopener">🔗 Verify</a>' : "") +
+          "</figcaption></figure>";
+      }).join("") +
+      "</div>";
+  }
+
+  /* ==========================================================================
      genealogy.py
      ========================================================================== */
   function renderGenealogy() {
@@ -393,6 +432,7 @@
     "Experience & Education": renderExperience,
     "CV": renderCV,
     "Publications": renderPublications,
+    "Certificates & Patents": renderCertificates,
     "Academic Genealogy": renderGenealogy,
     "News": renderNews
   };
