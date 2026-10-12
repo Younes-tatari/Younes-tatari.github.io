@@ -477,12 +477,13 @@
   fromHash();
 
   /* ---------------------- color picker (sidebar + hero card colors) ---------------------- */
+  var DEFAULT_PALETTE = 4; // Ocean blue
   var PALETTES = [
-    { name: "Teal (default)", brand: "#062a30", hero: ["#05222a", "#0d5c63", "#138a8f"] },
+    { name: "Teal", brand: "#062a30", hero: ["#05222a", "#0d5c63", "#138a8f"] },
     { name: "Navy (original)", brand: "#0b132b", hero: ["#0a192f", "#1e3c72", "#2a5298"] },
     { name: "Black", brand: "#0e0e10", hero: ["#000000", "#1c1c1f", "#3a3a40"] },
     { name: "Slate", brand: "#1f2937", hero: ["#111827", "#334155", "#475569"] },
-    { name: "Ocean blue", brand: "#0c2a4d", hero: ["#0b2545", "#13508f", "#1d7fd6"] },
+    { name: "Ocean blue (default)", brand: "#0c2a4d", hero: ["#0b2545", "#13508f", "#1d7fd6"] },
     { name: "Forest green", brand: "#0d2318", hero: ["#0a1f15", "#1b4d33", "#2e7d4f"] },
     { name: "Royal purple", brand: "#1a1033", hero: ["#140a2b", "#3b1f6e", "#5b34a8"] },
     { name: "Burgundy", brand: "#2a0b14", hero: ["#22070f", "#5c1a2b", "#8a2a40"] },
@@ -517,7 +518,7 @@
 
   var current = null;
   try { current = JSON.parse(localStorage.getItem("siteColors") || "null"); } catch (e) {}
-  if (!current || !current.hero) current = PALETTES[0];
+  if (!current || !current.hero) current = PALETTES[DEFAULT_PALETTE];
   applyPalette(current);
 
   var picker = document.createElement("div");
@@ -530,7 +531,7 @@
           'style="background: linear-gradient(135deg, ' + p.hero[0] + ", " + p.hero[1] + ", " + p.hero[2] + ')"></button>';
       }).join("") + "</div>" +
       '<div class="picker__name" id="pickerName"></div>' +
-      '<label class="picker__custom">Custom: <input type="color" id="pickerCustom" value="#138a8f">' +
+      '<label class="picker__custom">Custom: <input type="color" id="pickerCustom" value="#1d7fd6">' +
       '<button type="button" class="picker__reset" id="pickerReset">Reset</button></label>' +
     "</div>" +
     '<button type="button" class="picker__btn" id="pickerBtn" aria-expanded="false" aria-controls="pickerPanel">🎨 <span>Colors</span></button>';
@@ -560,7 +561,7 @@
     if (sw) choose(PALETTES[+sw.getAttribute("data-i")]);
   });
   document.getElementById("pickerCustom").addEventListener("input", function () { choose(paletteFrom(this.value)); });
-  document.getElementById("pickerReset").addEventListener("click", function () { choose(PALETTES[0]); });
+  document.getElementById("pickerReset").addEventListener("click", function () { choose(PALETTES[DEFAULT_PALETTE]); });
   document.addEventListener("click", function (e) {
     if (!panel.hidden && !picker.contains(e.target)) { panel.hidden = true; pbtn.setAttribute("aria-expanded", "false"); }
   });

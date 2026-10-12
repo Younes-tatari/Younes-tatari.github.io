@@ -13,10 +13,10 @@
   --st-link: #0068c9;
   --sidebar-w: 336px;
   /* Brand colors: changed live by the color picker (app.js) */
-  --brand: #062a30;
-  --hero-1: #05222a;
-  --hero-2: #0d5c63;
-  --hero-3: #138a8f;
+  --brand: #0c2a4d;
+  --hero-1: #0b2545;
+  --hero-2: #13508f;
+  --hero-3: #1d7fd6;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
