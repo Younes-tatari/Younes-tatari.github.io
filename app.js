@@ -383,6 +383,9 @@
      news.py
      ========================================================================== */
   var newsItems = [
+    { date: "October 2026", tag: "Certificate", title: "NVIDIA Certificate in Agentic AI 🏅",
+      body: "Earned the NVIDIA Certificate of Competency for *Building Agentic AI Applications with Large Language Models*.",
+      image: "assets/news/nvidia_cert.jpg", link: "https://learn.nvidia.com/certificates?id=gvxXCAY3SemlyRwwNSzEEw" },
     { date: "August 2026", tag: "Industry Experience", title: "Concluded Internship at CNH Industrial ☑️",
       body: "Completed my internship at CNH Industrial in New Holland, PA as a Soil and Crop Modeling Intern, developing data-driven reduced-order models (ROM) from complex multiphase flow simulations.",
       image: "assets/news/CNH.jpg", link: "" },
